@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Matcher</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Import Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Import PDF.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Resume-Based Job Matcher</h1>
+  </header>
+
+  <main>
+    <section class="upload-section">
+      <h2>Upload Your Resume (PDF Format)</h2>
+      <input type="file" id="resumeFile" accept=".pdf">
+      <button id="submitBtn">Upload Resume</button>
+    </section>
+
+    <section class="results-section">
+      <h2>Status</h2>
+      <p id="statusMessage"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 Job Matcher App</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

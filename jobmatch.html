@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Job Matcher</title>
+</head>
+<body>
+    <h1>Resume Job Suggestions</h1>
+    <form id="resumeForm">
+        <textarea id="resumeText" placeholder="Paste your resume text here..." rows="10" cols="50"></textarea><br>
+        <button type="submit">Get Job Suggestions</button>
+    </form>
+
+    <h2>Suggested Jobs:</h2>
+    <div id="jobSuggestions"></div>
+
+    <script>
+        document.getElementById('resumeForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const resumeText = document.getElementById('resumeText').value;
+
+            const response = await fetch('/analyze-resume', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ resume_text: resumeText })
+            });
+
+            const data = await response.json();
+            const jobSuggestionsDiv = document.getElementById('jobSuggestions');
+            jobSuggestionsDiv.innerHTML = data.job_suggestions.replace(/\n/g, '<br>');
+        });
+    </script>
+</body>
+</html>
